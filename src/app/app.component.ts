@@ -35,11 +35,12 @@ export class AppComponent {
       permission: 'Attendance',
     },
     {
-<<<<<<< HEAD
       title:'Appraisal',
       url: 'appraisal-hr-scren',
       icon:'trending-up',
-=======
+      permission:'Performance',
+    },
+    {
       title:'My Appraisal',
       url: 'employee-evaluation',
       icon:'people',
@@ -49,7 +50,7 @@ export class AppComponent {
       title:'Manager',
       url: 'manager',
       icon:'people',
->>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
+
       permission: 'Performance',
     },
     {
