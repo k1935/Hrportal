@@ -312,6 +312,10 @@ export class CommonService implements HttpInterceptor {
     this.loading1.dismiss();
   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
   registerEmployee(formData) {
     return new Promise((resolve, reject) => {
       formData.organisationId = this.authService.organisationId;

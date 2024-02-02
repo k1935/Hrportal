@@ -1,0 +1,613 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="dark" defaultHref="/manager"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reviewform</ion-title>
+    <ion-row>
+      <ion-col size="12" class="ion-text-end">
+        <ion-button (click)="managerReview()">Manager Review</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="reviewForm">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="8">
+          <table class="custom-table">
+            <thead>
+              <tr>
+                <th style="padding: 10px; width: 200px;">Skills</th>
+                <th>Employee Ratings</th>
+                <th>Remarks</th>
+                <th>Manager Rating</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let entry of detail; let i = index">
+                <td>{{ entry.skills }}</td>
+                <td>{{ entry.employeeRating }}</td>
+                <td>{{ entry.employeeRemarks}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select 
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="communicationRating"
+                    placeholder="communication"
+                    (ionChange)="handleDropdownChange($event, 'communication')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 2nd row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="interpersonalRating"
+                    placeholder="interpersonal"
+                    (ionChange)="handleDropdownChange($event, 'interpersonal')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 3rd row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="abilityRating"
+                    placeholder="ability"
+                    (ionChange)="handleDropdownChange($event, 'ability')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 4th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="solvingRating"
+                    placeholder="solving"
+                    (ionChange)="handleDropdownChange($event, 'solving')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+
+              <!-- 5th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="flexibilityRating"
+                    placeholder="flexibility"
+                    (ionChange)="handleDropdownChange($event, 'flexibility')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+
+              <!-- 6th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="willingnessRating"
+                    placeholder="willingness"
+                    (ionChange)="handleDropdownChange($event, 'willingness')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 7th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="perfectRating"
+                    placeholder="perfect"
+                    (ionChange)="handleDropdownChange($event, 'perfect')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+
+              <!-- 8th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="habitsRating"
+                    placeholder="habits"
+                    (ionChange)="handleDropdownChange($event, 'habits')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+
+              <!-- 9th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="presentationRating"
+                    placeholder="presentation"
+                    (ionChange)="handleDropdownChange($event, 'presentation')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 10th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="punctualityRating"
+                    placeholder="punctuality"
+                    (ionChange)="handleDropdownChange($event, 'punctuality')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 11th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="inRating"
+                    placeholder="in"
+                    (ionChange)="handleDropdownChange($event, 'in')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 12th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="wiRating"
+                    placeholder="wi"
+                    (ionChange)="handleDropdownChange($event, 'wi')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 13th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="teamRating"
+                    placeholder="team"
+                    (ionChange)="handleDropdownChange($event, 'team')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+
+              <!-- 14th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="colleaguesRating"
+                    placeholder="colleagues"
+                    (ionChange)="handleDropdownChange($event, 'colleagues')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+              <!-- 15th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="makingRating"
+                    placeholder="making"
+                    (ionChange)="handleDropdownChange($event, 'making')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+
+              <!-- 16th row -->
+              <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td style="text-align: center">
+                  <ion-select
+                    style="
+                      width: 100%;
+                      max-width: 150px;
+                      margin: 0 auto;
+                      background: var(--ion-color-light);
+                      color: var(--ion-color-dark);
+                      font-weight: 300;
+                      border: 0.5px solid rgb(83, 83, 83);
+                      border-radius: 5px;
+                      padding: 7px;
+                    "
+                    formControlName="skRating"
+                    placeholder="sk"
+                    (ionChange)="handleDropdownChange($event, 'sk')"
+                  >
+                    <ion-select-option value="excellent"
+                      >Excellent</ion-select-option
+                    >
+                    <ion-select-option value="verygood"
+                      >Very Good</ion-select-option
+                    >
+                    <ion-select-option value="good">Good</ion-select-option>
+                    <ion-select-option value="average"
+                      >Average</ion-select-option
+                    >
+                  </ion-select>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="8" class="ion-text-end">
+          <ion-button type="submit"
+            >Submit</ion-button
+          >
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

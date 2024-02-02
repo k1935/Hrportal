@@ -65,7 +65,11 @@
                 <ion-item>
                   <ion-label position="stacked" style="color: #fff;">Middle Name</ion-label>
                   <ion-input formControlName="middleName"></ion-input>
+<<<<<<< HEAD
                   
+=======
+
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
                 </ion-item>
               </ion-col>
               <ion-col size="4">
@@ -123,15 +127,26 @@
               <ion-col size="4">
                 <ion-item>
                   <ion-label position="stacked" style="color: #fff;">Phone Number <span style="color: red;"> *</span></ion-label>
+<<<<<<< HEAD
                   <ion-input type="number" formControlName="phoneNo"></ion-input>                  
+=======
+                  <ion-input type="number" formControlName="phoneNo"></ion-input>
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
                   <div *ngIf="basic.get('phoneNo').hasError('pattern') && basic.get('phoneNo').touched">
                     <span style="color:red;font-size:   13px;">
                   Please enter a valid 10-digit phone number.
                     </span>
+<<<<<<< HEAD
                   </div>              
                   
                 </ion-item>
                
+=======
+                  </div>
+
+                </ion-item>
+
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
               </ion-col>
               <ion-col size="4">
                 <ion-item>
@@ -480,7 +495,11 @@
 
     <!-- employee docs (Sonali) -->
 
+<<<<<<< HEAD
     <ion-grid class="ion-margin hidden-sm-down" *ngIf="segment==='docs'" >    
+=======
+    <ion-grid class="ion-margin hidden-sm-down" *ngIf="segment==='docs'" >
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
       <ion-row style="
       position: sticky;
       top: 0px;
@@ -503,7 +522,11 @@
         <ion-col size="2">{{document.mimetype}}</ion-col>
         <ion-col size="2">{{document.size/1000}} kb</ion-col>
         <ion-col size="2">{{document.date | date:'dd MMM, yyyy'}}</ion-col>
+<<<<<<< HEAD
         <ion-col size="1"> 
+=======
+        <ion-col size="1">
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
           <ion-icon name="trash-outline" color="danger"></ion-icon>
         </ion-col>
       </ion-row>
@@ -514,7 +537,11 @@
 <ion-footer class="ion-no-border" color="gray">
   <ion-toolbar color="gray">
     <ion-buttons slot="end">
+<<<<<<< HEAD
       
+=======
+
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
       <ion-button *ngIf="segment==='user' && !employeeActive" expand="block" fill="outline" color="success"
         style="font-weight: 300;width: 150px;" [disabled]="!userOnboarded" (click)="updateStatus('1')">Activate</ion-button>
       <ion-button *ngIf="segment==='user' && employeeActive" expand="block" fill="outline" color="danger"
@@ -532,8 +559,16 @@
         style="font-weight: 300;width: 150px;" (click)="updateEmployee()" >Update</ion-button>
 
       <input *ngIf="segment==='docs'" id="file" type="file" (change)="handleFileSelect($event)" multiple />
+<<<<<<< HEAD
       
 
     </ion-buttons>
   </ion-toolbar>
 </ion-footer>
+=======
+
+
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+>>>>>>> 25dd4f78735ce6a8a4c0cc1b9ee361dff4ba35e2
