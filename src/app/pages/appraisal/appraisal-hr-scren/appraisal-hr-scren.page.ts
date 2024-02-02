@@ -13,10 +13,11 @@ import { CommonService } from 'src/app/services/common.service';
 export class AppraisalHrScrenPage implements OnInit {
   data1: any;
   fetch: any;
-  get: any;
+  fetchEmployee: any;
   employees: any;
   segment: any ;
   filterTerm: any;
+  departmentName: any;
   constructor(
     public modalController: ModalController,
     public authService: AuthService,
@@ -28,7 +29,7 @@ export class AppraisalHrScrenPage implements OnInit {
   }
 ngOnInit() {
   this.fetchDepartment();
-  this.fetchMainScreenList();
+  // this.fetchMainScreenList();
 }
 fetchDepartment() {
   const formData = {
@@ -41,15 +42,21 @@ fetchDepartment() {
     // console.log("fetch",data);
   });
 }
+onSelectionChange(data){
+  this.departmentName=data.detail.value;
+this.fetchMainScreenList();
 
+}
 fetchMainScreenList(){
   const formData = {
     permissionName: 'Tasks',
     employeeIdMiddleware: this.data1,
     employeeId: this.data1,
+    name: this.departmentName,
   };
+  console.log("mainScreen",formData);
   this.appraisalService.mainScreenList(formData).then((data: any) => {
-    this.get = data;
+    this.fetchEmployee = data;
   });
 }
 viewForm() {
@@ -62,16 +69,16 @@ searchEmployee(event: any) {
   console.log('Search Term:', searchTerm);
 
   if (!searchTerm) {
-    this.get = [...this.data1];
-    console.log('Data Reset:', this.get);
+    this.fetchEmployee = [...this.data1];
+    console.log('Data Reset:', this.fetchEmployee);
     return;
   }
 
-  this.get = this.data1.filter(employee =>
+  this.fetchEmployee = this.data1.filter(employee =>
     employee.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  console.log('Filtered Data:', this.get);
+  console.log('Filtered Data:', this.fetchEmployee);
 }
 // segmentChanged(ev) {
 //   this.offset = 0;

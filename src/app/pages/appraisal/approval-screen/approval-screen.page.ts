@@ -112,7 +112,7 @@ export class ApprovalScreenPage implements OnInit {
     const toast = await this.toast.create({
       message: 'Submitted successfully!',
       duration: 2000,
-      position: 'bottom',
+      position: 'top',
       color: 'success',
     });
 

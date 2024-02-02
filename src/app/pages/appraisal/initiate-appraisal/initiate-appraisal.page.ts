@@ -94,6 +94,7 @@ this.fetchEmp();
     };
     this.appraisalService.initiateEmployee(formData).then((res: any) => {
       this.sendEmployeeData = res;
+      // console.log("data",res);
       this.presentToast();
       this.employeeForm.reset();
     });
@@ -102,7 +103,7 @@ this.fetchEmp();
     const toast = await this.toast.create({
       message: 'Submitted successfully!',
       duration: 2000,
-      position: 'bottom',
+      position: 'top',
       color: 'success',
     });
 
